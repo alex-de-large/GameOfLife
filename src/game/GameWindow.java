@@ -37,9 +37,8 @@ public class GameWindow extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocation(300, 300);
         Dimension dim = gameBoard.getMinimumSize();
-        setSize(dim.width + 16, dim.height + getJMenuBar().getHeight() + 62);
-        setMaximumSize(gameBoard.getMinimumSize());
-        setResizable(false);
+        setSize(dim.width, dim.height + getJMenuBar().getHeight() + 45);
+        setMaximumSize(gameBoard.getMinimumSize());;
     }
 
     private MouseListener gameBoardListener = new MouseListener() {
