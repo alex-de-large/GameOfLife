@@ -47,7 +47,11 @@ public class GameBoard extends JPanel {
     }
 
     public void changeCellState(int i, int j) {
-        cells[i][j] = cells[i][j] == CELL_ALIVE? CELL_DEAD: CELL_ALIVE;
+        try {
+            cells[i][j] = cells[i][j] == CELL_ALIVE? CELL_DEAD: CELL_ALIVE;
+        } catch (IndexOutOfBoundsException ignored) {
+
+        }
     }
 
     private void initCells() {
