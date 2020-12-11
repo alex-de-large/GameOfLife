@@ -142,7 +142,7 @@ public class GameWindow extends JFrame {
         public void run() {
             while (!interrupted()) {
                 try {
-                    sleep(500);
+                    sleep(800);
                 } catch (InterruptedException e) {
                     interrupt();
                 }
