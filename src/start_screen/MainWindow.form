@@ -20,15 +20,15 @@
           </component>
         </children>
       </grid>
-      <grid id="6971b" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="20" vgap="20">
-        <margin top="20" left="20" bottom="20" right="20"/>
+      <grid id="6971b" layout-manager="GridBagLayout">
         <constraints border-constraint="Center"/>
         <properties/>
         <border type="none"/>
         <children>
           <component id="35cc5" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="Cells num:"/>
@@ -36,7 +36,8 @@
           </component>
           <component id="3735b" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="M:"/>
@@ -44,7 +45,8 @@
           </component>
           <component id="cf7f9" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="N:"/>
@@ -52,7 +54,8 @@
           </component>
           <component id="55749" class="javax.swing.JLabel">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="Board color:"/>
@@ -61,17 +64,18 @@
           <component id="2d44d" class="javax.swing.JButton" binding="buttonBoardColorSelect">
             <constraints>
               <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="..."/>
             </properties>
           </component>
-          <grid id="e4cfc" binding="colorPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <grid id="e4cfc" binding="colorPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints>
               <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <maximum-size width="70" height="30"/>
               </grid>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -79,7 +83,8 @@
           </grid>
           <component id="70d38" class="javax.swing.JLabel">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="Cell size:"/>
@@ -88,18 +93,21 @@
           <component id="b760d" class="javax.swing.JSpinner" binding="spinnerBoardSizeY">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties/>
           </component>
           <component id="1c0cb" class="javax.swing.JSpinner" binding="spinnerBoardSizeX">
             <constraints>
               <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties/>
           </component>
           <component id="db7a8" class="javax.swing.JSpinner" binding="spinnerCellSize">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties/>
           </component>
