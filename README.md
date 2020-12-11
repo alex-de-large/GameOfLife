@@ -7,6 +7,4 @@ This game became widely known when it was mentioned in an article published by S
 based on a few mathematical rules, can live, die or multiply. 
 Depending on the initial conditions, the cells form various patterns throughout the course of the game.
 
-You can run this app using the following commands:
-ant build
-ant run
+You can run this app using the following commands: ant build, ant run
