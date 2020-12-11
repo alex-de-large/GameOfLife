@@ -51,7 +51,7 @@ public class GameWindow extends JFrame {
 
         @Override
         public void mousePressed(MouseEvent e) {
-            onMouseAction(e);
+            onMouseAction(e, false);
         }
 
         @Override
@@ -73,7 +73,7 @@ public class GameWindow extends JFrame {
     private MouseMotionListener mouseMotionListener = new MouseMotionListener() {
         @Override
         public void mouseDragged(MouseEvent e) {
-            onMouseAction(e);
+            onMouseAction(e, true);
         }
 
         @Override
@@ -82,11 +82,18 @@ public class GameWindow extends JFrame {
         }
     };
 
-    private void onMouseAction(MouseEvent e) {
+    private void onMouseAction(MouseEvent e, boolean deadCellsOnly) {
         if (currentMode == EDIT_MODE) {
             int i = e.getY() / (gameBoard.getCellSize());
             int j = e.getX() / (gameBoard.getCellSize());
-            gameBoard.changeCellState(i, j);
+            if (deadCellsOnly) {
+                int cellState = gameBoard.getCellState(i, j);
+                if (cellState == 0) {
+                    gameBoard.changeCellState(i, j);
+                }
+            } else {
+                gameBoard.changeCellState(i, j);
+            }
             gameBoard.repaint();
         }
     }
