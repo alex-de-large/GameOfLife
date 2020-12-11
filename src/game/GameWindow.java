@@ -3,13 +3,14 @@ package game;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.net.http.WebSocket;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameWindow extends JFrame {
 
     private GameBoard gameBoard;
     private int currentMode;
-    private GameThread gameThread;
+    private Timer timer;
     private int cellsNumX;
     private int cellsNumY;
 
@@ -23,7 +24,6 @@ public class GameWindow extends JFrame {
         gameBoard = new GameBoard(cellsNumY, cellsNumX, boardColor, cellsSize);
         gameBoard.addMouseListener(gameBoardListener);
         gameBoard.addMouseMotionListener(mouseMotionListener);
-        gameThread = new GameThread();
         currentMode = EDIT_MODE;
 
         setContentPane(gameBoard);
@@ -32,7 +32,7 @@ public class GameWindow extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                gameThread.interrupt();
+                timer.cancel();
             }
         });
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -128,26 +128,22 @@ public class GameWindow extends JFrame {
     }
 
     private void startGameMode() {
-        gameThread = new GameThread();
-        gameThread.start();
+        timer = new Timer();
+        MyTimerTask myTimerTask = new MyTimerTask();
+        timer.schedule(myTimerTask, 800, 800);
+
     }
 
     private void stopGameMode() {
-        gameThread.interrupt();
+        timer.cancel();
     }
 
+    private class MyTimerTask extends TimerTask {
 
-    private class GameThread extends Thread {
         @Override
         public void run() {
-            while (!interrupted()) {
-                try {
-                    sleep(800);
-                } catch (InterruptedException e) {
-                    interrupt();
-                }
-                gameBoard.makeStep();
-            }
+            gameBoard.makeStep();
+            gameBoard.revalidate();
         }
     }
 }
