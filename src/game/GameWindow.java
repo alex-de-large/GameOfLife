@@ -32,7 +32,11 @@ public class GameWindow extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                timer.cancel();
+                try {
+                    timer.cancel();
+                } catch (Exception ignored) {
+
+                }
             }
         });
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
