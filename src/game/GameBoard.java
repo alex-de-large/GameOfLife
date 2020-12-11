@@ -70,7 +70,7 @@ public class GameBoard extends JPanel {
         }
     }
 
-    private int getNeighboursNum(int i, int j) {
+    public int getNeighboursNum(int i, int j) {
         int m = cells.length;
         int n = cells[0].length;
         int neighbours = 0;
@@ -88,7 +88,7 @@ public class GameBoard extends JPanel {
         return neighbours;
     }
 
-    private void nextStep() {
+    public void nextStep() {
         int[][] newCells = new int[cells.length][cells[0].length];
 
         for (int i = 0; i < cells.length; i++) {
