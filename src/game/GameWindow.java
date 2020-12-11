@@ -22,6 +22,7 @@ public class GameWindow extends JFrame {
         this.cellsNumY = cellsNumY;
         gameBoard = new GameBoard(cellsNumY, cellsNumX, boardColor, cellsSize);
         gameBoard.addMouseListener(gameBoardListener);
+        gameBoard.addMouseMotionListener(mouseMotionListener);
         gameThread = new GameThread();
         currentMode = EDIT_MODE;
 
@@ -50,12 +51,7 @@ public class GameWindow extends JFrame {
 
         @Override
         public void mousePressed(MouseEvent e) {
-            if (currentMode == EDIT_MODE) {
-                int i = e.getY() / (gameBoard.getCellSize());
-                int j = e.getX() / (gameBoard.getCellSize());
-                gameBoard.changeCellState(i, j);
-                gameBoard.repaint();
-            }
+            onMouseAction(e);
         }
 
         @Override
@@ -73,6 +69,27 @@ public class GameWindow extends JFrame {
 
         }
     };
+
+    private MouseMotionListener mouseMotionListener = new MouseMotionListener() {
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            onMouseAction(e);
+        }
+
+        @Override
+        public void mouseMoved(MouseEvent e) {
+
+        }
+    };
+
+    private void onMouseAction(MouseEvent e) {
+        if (currentMode == EDIT_MODE) {
+            int i = e.getY() / (gameBoard.getCellSize());
+            int j = e.getX() / (gameBoard.getCellSize());
+            gameBoard.changeCellState(i, j);
+            gameBoard.repaint();
+        }
+    }
 
     private void initMenu() {
         JMenuBar jMenuBar = new JMenuBar();
